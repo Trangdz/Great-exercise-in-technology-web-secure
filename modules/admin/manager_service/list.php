@@ -3,7 +3,6 @@ if (!defined('_INCODE') == 1) {
     die('Access deined');
 }
 
-echo "davoa";
 
 if (!isLogin()) {
     redirect('?module=auth&action=login');

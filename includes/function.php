@@ -184,6 +184,7 @@ function getMsg($msg, $type = 'success') {
       
     }
 }
+
 function redirect($path='index.php'){
     header("Location: $path");
     exit();

@@ -8,129 +8,228 @@ if (defined('_INCODE') != 1) {
 // saveActivity();
 
 
+
+// $page = isset($_GET['page']) ? $_GET['page'] : 'services'; // Lấy trang hiện tại từ URL, mặc định là quản lý dịch vụ
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo !empty($data['pageTitle']) ? $data['pageTitle'] : 'Unicode'; ?></title>
-    <link rel="stylesheet" type="text/css" href="style.css?ver=<?php echo time(); ?>">
-
-    <link rel="stylesheet" href="module/users/style.css?ver=<?php echo time(); ?>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <title>Quản lý phòng tiêm chủng an toàn</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            margin: 20px;
+            display: flex;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #343a40;
+            padding: 20px;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .sidebar h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #fff;
+            margin: 10px 0;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            /* Hiệu ứng chuyển tiếp */
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+            color: #ffc107;
+            /* Màu vàng khi hover */
+            border-radius: 5px;
+        }
+
+        .sidebar a.active {
+            background-color: #495057;
+            color: #ffc107;
+            /* Màu vàng khi được chọn */
+        }
+
+        .content {
+            flex-grow: 1;
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #f0f2f5;
         }
 
         .navbar {
-            font-size: 20px;
-            color: black;
-            /* font-weight: bold; */
+            background-color: #343a40;
+            color: #fff;
+            padding: 1rem;
         }
 
-        .menu-bar {
-            position: relative;
-            left: 400px;
+        .navbar-brand {
+            font-size: 1.4rem;
+            color: #fff;
         }
 
-        .nav-item {
-            margin-left: 20px;
+        .navbar-nav .nav-link {
+            color: #fff;
+            transition: color 0.3s ease;
+            /* Hiệu ứng chuyển màu chữ */
         }
 
-        .btn-login {
-            width: 100px;
-            height: 50px;
-            background-color: white;
-            border-radius: 7px;
-            border: 2px solid black;
-
-            padding: 10px;
+        .navbar-nav .nav-link:hover {
+            color: #ffc107;
+            /* Màu vàng khi hover */
         }
 
-        .btn-login:hover {
-            background-color: black;
+        /* Dropdown menu style */
+        .dropdown-menu {
+            background-color: #343a40;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-menu a {
             color: white;
+            transition: background-color 0.3s ease;
         }
 
-        .btn-signin {
-            margin-left: 20px;
-            width: 100px;
-            height: 50px;
-            background-color: green;
-            color: white;
-            border-radius: 7px;
-            border: 2px solid black;
-
-            padding: 10px;
-
+        .dropdown-menu a:hover {
+            background-color: #495057;
         }
 
-.btn-auth{
-    position: relative;
-    right: 100px;
-}
+        /* Button style with hover effect */
+        .btn {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
 
+        .btn:hover {
+            background-color: #007bff;
+            transform: scale(1.05);
+            /* Tăng nhẹ kích thước khi hover */
+        }
 
+        .content-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+            /* Hiệu ứng cho section */
+        }
+
+        .content-section:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            /* Tăng độ sâu khi hover */
+        }
+
+        .content-section h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
     </style>
+</head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light tool-bar">
-        <img src="https://smed.vn/Template/image/logo/logo.png">
+    <!-- Sidebar -->
+    <div class="side-bar">
+        <nav class="sidebar">
+            <h2>Admin Panel</h2>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <a href="?page=manager_service&action=services" class="<?php if ($page == 'services') echo 'active'; ?>">Services</a>
+            <a href="?page=manager_service&action=list" class="<?php if ($page == 'list') echo 'active'; ?>">User management</a>
+            <a href="?page=manager_service&action=pre_screening" class="<?php if ($page == 'pre_screening') echo 'active'; ?>">Vaccination service management</a>
+            <a href="?page=manager_service&action=vaccine_records" class="<?php if ($page == 'vaccine_records') echo 'active'; ?>">Vaccination Card management</a>
+            <a href="?page=manager_service&action=bills" class="<?php if ($page == 'bills') echo 'active'; ?>">Invoice management</a>
+            <a href="?page=manager_service&action=reports" class="<?php if ($page == 'reports') echo 'active'; ?>">Revenua statistics</a>
+        </nav>
+    </div>
 
-        <div class="collapse navbar-collapse menu-bar" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link " href="#">Home </span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link " href="?module=admin&action=list">Manager user </span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Manager service
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+    <div class="header">
+        <!-- Content Area -->
+        <div class="content">
+            <!-- Navbar with Home, Profile, Contact, and Settings Dropdown -->
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Quản lý phòng tiêm chủng an toàn</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Settings
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Account Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Privacy Settings</a></li>
+                                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                </li>
-               
-                <li class="nav-item">
-                    <a class="nav-link" href="#">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <!-- <li class="nav-item dropdown profile">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Hi, Trang
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href='?module=auth&action=logout&loginToken=' .$loginToken>Log out</a>
-                        <div class="dropdown-divider"></div>
+                </div>
+            </nav>
+        </div>
 
-                    </div>
-                </li> -->
-            </ul>
-            <!-- <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form> -->
+
+        <!-- Content sections -->
+        <!-- <div class="container mt-4"> -->
+        <div class="content">
+
+        
+            <?php
+            // Kiểm tra xem biến $_GET['page'] có tồn tại không, nếu không thì gán giá trị mặc định là 'dashboard'
+            $page = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
+
+            // Hiển thị nội dung dựa vào trang được chọn
+            switch ($page) {
+                case 'services':
+                    include 'modules/admin/manager_service/services.php'; // Quản lý dịch vụ
+                    break;
+                case 'list':
+                    include 'modules/admin/manager_service/list.php'; // Quản lý dịch vụ
+                    break;
+                case 'pre_screening':
+                    include 'modules/admin/manager_service/pre_screening.php'; // Quản lý phiếu khám sàng lọc
+                    break;
+                case 'vaccine_records':
+                    include 'modules/admin/manager_service/vaccine_records.php'; // Quản lý phiếu tiêm chủng
+                    break;
+                case 'bills':
+                    include 'modules/admin/manager_service/bills.php'; // Quản lý hóa đơn
+                    break;
+                case 'reports':
+                    include 'modules/admin/manager_service/reports.php'; // Thống kê doanh thu
+                    break;
+                case 'dashboard':
+                    include 'modules/admin/manager_service/dashboard.php'; // Mặc định là Dashboard
+                    break;
+            }
+            ?>
         </div>
-        <div class="btn-auth">
-            <a href="?module=auth&action=logout" class="btn btn-login">Log out</a>
-            <a href="?module=auth&action=register" class="btn btn-signin">Sign in</a>
-        </div>
-    </nav>
+
+    </div>

@@ -26,13 +26,14 @@ if (isPost()) {
       
        
         //Query take inform fllowing email
-        $userQuery = firstRaw("SELECT id, password FROM user WHERE email ='$email' AND status=1");
-
+        $userQuery = firstRaw("SELECT id, password,role FROM user WHERE email ='$email' AND status=1");
+        var_dump($userQuery);
         //  var_dump($userQuery);
         if (!empty($userQuery)) {
             $passwordHash = $userQuery['password'];
             $userId = $userQuery['id'];
-          
+            $role=$userQuery['role'];
+
             if (password_verify($password, $passwordHash)) {
                 //Create token login
                 $tokenLogin = sha1(uniqid() . time());
@@ -56,7 +57,18 @@ if (isPost()) {
                     saveActivity();
                     //Redirection across manager page
                    
-                   redirect('?module=admin&action=home');
+                    var_dump($role);
+                    $_SESSION['role']=$role;
+                    if($role==='1')
+                    {
+                       
+                        header("Location:/baitaplon/modules/admin/index.php");
+                    }
+                    else
+                    {
+                        header("Location: /baitaplon/modules/user/index.php");
+                    }
+                  
                 //    echo $_SESSION['loginToken'];
                 //    echo "Da co session";
                 } else {
