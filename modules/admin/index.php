@@ -18,11 +18,20 @@ require_once(__DIR__ . '/../../../baitaplon/includes/session.php');
 require_once(__DIR__ . '/../../../baitaplon/templates/layout/header-admin.php');
 
 // Đặt mặc định cho $page và $action
-$page = isset($_GET['page']) && is_string($_GET['page']) ? trim($_GET['page']) : 'manager_service';
-$action = isset($_GET['action']) && is_string($_GET['action']) ? trim($_GET['action']) : 'dashboard';
-
+$page = isset($_GET['page_web']) && is_string($_GET['page_web']) ? trim($_GET['page_web']) : 'manager_service';
+$action = isset($_GET['action_web']) && is_string($_GET['action_web']) ? trim($_GET['action_web']) : 'dashboard';
+// var_dump($page);
+// var_dump($action);
 // Đường dẫn tệp cần nạp (lấy từ thư mục admin/manager_service)
-$path = __DIR__ . '/' . $page . '/' . $action . '.php';
+if(!isset($_GET['page_web']))
+{
+  $path = __DIR__ . '/' . $action . '.php';
+}
+else
+{
+  $path = __DIR__ . '/' . $page . '/' . $action . '.php';
+}
+
 
 // Kiểm tra xem tệp có tồn tại không và nạp tệp
 if (file_exists($path)) {

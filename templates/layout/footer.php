@@ -4,6 +4,13 @@ if (defined('_INCODE') != 1) {
 }
 
 ?>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Học Viện Kỹ Thuật Mật Mã. All rights reserved.</p>
+        <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
+    </div>
+</footer>
+
 
 <script type="text/javascript" src="user_manager\templates\js\bootrap.min.js"></script>
 <script type="text/javascript" src="user_manager\templates\js\custom.js"></script>

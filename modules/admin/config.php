@@ -8,7 +8,7 @@ const _ACTION_DEFAULT = 'list';
 const _INCODE = true;
 
 // Establish host
-define('_WEB_HOST_ROOT', 'http://' . $_SERVER['HTTP_HOST'] . '/baitaplon/index.php');
+define('_WEB_HOST_ROOT', 'http://localhost/baitaplon/modules/admin/index.php');
 define('_WEB_HOST_TEMPLATE', _WEB_HOST_ROOT.'/templates');
 
 // Establish paths

@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px; /* Để không bị chèn vào navbar */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #343a40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+    font-size: 16px;
+}
+
+.navbar .nav-link:hover {
+    color: #ffc107 !important;
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.navbar .dropdown-menu {
+    background-color: #343a40;
+    border: none;
+}
+
+.navbar .dropdown-menu .dropdown-item {
+    color: #fff;
+}
+
+.navbar .dropdown-menu .dropdown-item:hover {
+    background-color: #495057;
+}
+
+/* Phần giới thiệu */
+.intro-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.intro-section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 18px;
+    color: #6c757d;
+}
+
+/* Phần tin tức */
+.news-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.news-section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #dc3545;
+}
+
+/* Hiệu ứng khi trỏ vào card (tin tức) */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #ffc107;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #6c757d;
+}
+.sidebar{
+    color: white;
+}

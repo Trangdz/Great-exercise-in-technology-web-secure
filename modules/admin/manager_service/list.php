@@ -146,8 +146,8 @@ if (isLogin()) {
                         <td><?php echo $item['email']; ?></td>
                         <td><?php echo $item['phone']; ?></td>
                         <td><?php echo $item['status'] == 1 ? '<button type="submit" class="btn btn-success btn-sm" style="padding-left:11px; padding-right:11px">Active</button>' : '<button type="submit" class="btn btn-warning btn-sm">Passive</button>'; ?></td>
-                        <td><a href=<?php echo _WEB_HOST_ROOT . '?module=users&action=edit&id=' . $item['id'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
-                        <td><a href=<?php echo _WEB_HOST_ROOT . '?module=users&action=delete&id=' . $item['id'] ?>   onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
+                        <td><a href=<?php echo _WEB_HOST_ROOT . '?page_web=admin&action=edit&id=' . $item['id'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
+                        <td><a href=<?php echo _WEB_HOST_ROOT . '?page_web=admin&action=delete&id=' . $item['id'] ?>   onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
                     </tr>
                     
                 <?php endforeach; ?>
@@ -172,7 +172,7 @@ if (isLogin()) {
 
             if ($page > 1) {
                 $prevPage = $page - 1;
-                echo '<li class="page-item"><a class="page-link" href="' . _WEB_HOST_ROOT . '?module=users&action=list&page=' . $prevPage . '">Trước</a></li>';
+                echo '<li class="page-item"><a class="page-link" href="' . _WEB_HOST_ROOT . 'page_web=admin&action=list&page=' . $prevPage . '">Trước</a></li>';
             }
 
 
@@ -189,7 +189,7 @@ if (isLogin()) {
             }
             for ($index = $begin; $index <= $end; $index++) : ?>
                 <li class="page-item <?php echo ($index == $page) ? 'active' : ''; ?>">
-                    <a class="page-link" href="<?php echo _WEB_HOST_ROOT . '?module=users' . $queryString . '&page=' . $index; ?>">
+                    <a class="page-link" href="<?php echo 'http://localhost/baitaplon/modules/admin/index.php'. '?page_web=manager_service&action_web=list' . $queryString . '&page=' . $index; ?>">
                         <?php echo $index; ?>
                     </a>
                 </li>

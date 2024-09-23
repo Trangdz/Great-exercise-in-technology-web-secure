@@ -4,7 +4,7 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 
 
 const _MODULE_DEFAULT = 'home';
-const _ACTION_DEFAULT = 'list';
+const _ACTION_DEFAULT = 'home_user';
 const _INCODE = true;
 
 // Establish host
