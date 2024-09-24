@@ -1,7 +1,14 @@
+<?php
+if (defined('_INCODE') != 1) {
+    die('Access Denied');
+}
+if (!isLogin()) {
+    header("Location:http:\\localhost\baitaplon\modules\auth\login.php");
+}
 
-    <!-- Navbar -->
-   
-
+// require_once('D:\xampp\htdocs\baitaplon\templates\layout\header-admin.php');
+?>
+<div class="content-section" id="mainContent">
     <!-- Carousel (Slider) -->
     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-indicators">
@@ -95,6 +102,12 @@
             <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
         </div>
     </footer>
+</div>
+<?php
 
-    <!-- Bootstrap JS -->
-    
+    // require_once('D:\xampp\htdocs\baitaplon\templates\layout\footer-admin.php');
+// }
+// else
+// {
+//     redirect('')
+// }

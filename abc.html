@@ -1,224 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Chủ Học Viện ACT</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
+    <title>Form with Image Upload</title>
     <style>
         body {
             font-family: Arial, sans-serif;
         }
-
-        /* Custom styling cho phần header */
-        .navbar-brand img {
-            width: 150px;
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
         }
-
-        /* Phần giới thiệu */
-        .intro-section {
-            padding: 60px 0;
-            background-color: #f8f9fa;
-            text-align: center;
+        input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
         }
-
-        .intro-section h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+        select, input[type="checkbox"] {
+            margin: 8px 0;
         }
-
-        .intro-section p {
-            font-size: 18px;
-            color: #6c757d;
-        }
-
-        /* Phần tin tức */
-        .news-section {
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .news-section h2 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #dc3545;
-        }
-
-        /* Hiệu ứng khi trỏ vào card (tin tức) */
-        .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #343a40;
+        input[type="submit"] {
+            background-color: #4CAF50;
             color: white;
-            padding: 20px 0;
-            text-align: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
-
-        footer a {
-            color: #ffc107;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .card-text {
-            font-size: 14px;
-            color: #6c757d;
+        input[type="submit"]:hover {
+            background-color: #45a049;
         }
     </style>
-
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="logo.png" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Trang Chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Giới Thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Khóa Học</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng Ký Học</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tin Tức</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<h2>Form with Image Upload</h2>
 
-    <!-- Carousel (Slider) -->
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="assets\image\1.png" class="d-block w-100" alt="Slide 1">
-            </div>
-            <div class="carousel-item">
-                <img src="assets\image\2.png" class="d-block w-100" alt="Slide 2">
-            </div>
-            <div class="carousel-item">
-                <img src="assets\image\3.png" class="d-block w-100" alt="Slide 3">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
+<form action="/submit-form" method="POST" enctype="multipart/form-data">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Email">
 
-    <!-- Phần Giới thiệu -->
-    <section class="intro-section">
-        <div class="container">
-            <h2>Học Viện Kỹ Thuật Mật Mã</h2>
-            <p>Học viện Kỹ thuật Mật mã là trường đại học thuộc hệ thống giáo dục quốc dân, trực thuộc Ban Cơ yếu Chính phủ, thực hiện nhiệm vụ
-                đào tạo nguồn nhân lực về lĩnh vực An toàn thông tin và Kỹ thuật mật mã.</p>
-        </div>
-    </section>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Password">
 
-    <!-- Phần Tin tức -->
-    <section class="news-section">
-        <div class="container">
-            <h2>ACT <span style="color: #000;">news</span></h2>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <img src="assets\image\4.png" class="card-img-top" alt="News 1">
-                        <div class="card-body">
-                            <h5 class="card-title">WORKSHOP - Hướng dẫn viết CV</h5>
-                            <p class="card-text">Tham gia để học cách tạo ấn tượng với CV của bạn.</p>
-                            <a href="#" class="btn btn-primary">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <img src="assets\image\5.png" class="card-img-top" alt="News 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Ưu đãi mừng lễ Quốc Khánh</h5>
-                            <p class="card-text">Giảm giá đặc biệt cho các khóa học trong dịp Quốc Khánh.</p>
-                            <a href="#" class="btn btn-primary">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <img src="assets\image\6.png" class="card-img-top" alt="News 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Xuất phát sớm cùng ACT</h5>
-                            <p class="card-text">Đăng ký ngay để nhận những ưu đãi khi tham gia các khóa học của ACT.</p>
-                            <a href="#" class="btn btn-primary">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="card">
-                        <img src="assets\image\7.png" class="card-img-top" alt="News 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Thông báo tuyển dụng</h5>
-                            <p class="card-text">Học viện ACT đang tuyển dụng các vị trí cộng tác viên năng động.</p>
-                            <a href="#" class="btn btn-primary">Xem thêm</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <label for="address">Address</label>
+    <input type="text" id="address" name="address" placeholder="1234 Main St">
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Học Viện Kỹ Thuật Mật Mã. All rights reserved.</p>
-            <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
-        </div>
-    </footer>
+    <label for="address2">Address 2</label>
+    <input type="text" id="address2" name="address2" placeholder="Apartment, studio, or floor">
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <label for="city">City</label>
+    <input type="text" id="city" name="city" placeholder="City">
+
+    <label for="state">State</label>
+    <select id="state" name="state">
+        <option value="">Choose...</option>
+        <option value="NY">New York</option>
+        <option value="CA">California</option>
+        <!-- Add more states as necessary -->
+    </select>
+
+    <label for="zip">Zip</label>
+    <input type="text" id="zip" name="zip" placeholder="Zip Code">
+
+    <label for="file">Upload Image</label>
+    <input type="file" id="file" name="file">
+
+    <label for="checkout">Check me out</label>
+    <input type="checkbox" id="checkout" name="checkout">
+
+    <input type="submit" value="Sign in">
+</form>
+
 </body>
-
 </html>

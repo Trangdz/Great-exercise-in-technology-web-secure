@@ -4,6 +4,7 @@ session_start();
 <?php
 require_once 'config.php';
 require_once 'database/connect_auth.php';
+require_once 'database/connect_service.php';
 require_once 'database/database.php';
 require_once 'includes/phpmailer/PHPMailer.php';
 require_once 'includes/phpmailer/SMTP.php';
@@ -22,7 +23,7 @@ $action='_ACTION_DEFAULT';
  }
  if (empty($_GET['module']))
  {
-   $module='home';
+   $module='auth';
  }
  if (!empty($_GET['action']))
  {
@@ -33,7 +34,7 @@ $action='_ACTION_DEFAULT';
  } 
  if(empty($_GET['action']))
  {
-  $action='list';
+  $action='login';
  }
  $path='modules/'.$module.'/'.$action.'.php';
 if(file_exists($path))

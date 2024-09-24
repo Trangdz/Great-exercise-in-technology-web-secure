@@ -10,13 +10,14 @@ if($_SESSION['role']!=='1')
 require_once('D:\xampp\htdocs\baitaplon\config.php'); 
 require_once(__DIR__ . '/../../../baitaplon/database/database.php');
 require_once(__DIR__ . '/../../../baitaplon/database/connect_auth.php');
+require_once(__DIR__ . '/../../../baitaplon/database/connect_service.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/Exception.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/PHPMailer.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/SMTP.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/function.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/session.php');
 require_once(__DIR__ . '/../../../baitaplon/templates/layout/header-admin.php');
-
+// var_dump(__DIR__ . '/../../../baitaplon/templates/layout/header-admin.php');
 // Đặt mặc định cho $page và $action
 $page = isset($_GET['page_web']) && is_string($_GET['page_web']) ? trim($_GET['page_web']) : 'manager_service';
 $action = isset($_GET['action_web']) && is_string($_GET['action_web']) ? trim($_GET['action_web']) : 'dashboard';
@@ -35,6 +36,7 @@ else
 
 // Kiểm tra xem tệp có tồn tại không và nạp tệp
 if (file_exists($path)) {
+  
     require_once $path;
 } else {
     // Xử lý lỗi khi không tìm thấy tệp, điều hướng tới trang 404

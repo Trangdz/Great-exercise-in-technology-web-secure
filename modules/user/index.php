@@ -48,6 +48,7 @@ require_once('D:\xampp\htdocs\baitaplon\config.php');
 // require_once('D:\xampp\htdocs\baitaplon\modules\user\config.php'); 
 require_once(__DIR__ . '/../../../baitaplon/database/database.php');
 require_once(__DIR__ . '/../../../baitaplon/database/connect_auth.php');
+require_once(__DIR__ . '/../../../baitaplon/database/connect_service.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/Exception.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/PHPMailer.php');
 require_once(__DIR__ . '/../../../baitaplon/includes/phpmailer/SMTP.php');

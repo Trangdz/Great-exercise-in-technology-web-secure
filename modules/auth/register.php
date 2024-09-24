@@ -17,7 +17,7 @@ if (isPost()) {
     //validate form
     $body = getBody(); //Lay tat ca du lieu cua form
 
-    var_dump($body);
+   
     $errors = [];
 
     //validate name : bat buoc nhap >=5 character

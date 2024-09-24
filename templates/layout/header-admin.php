@@ -10,7 +10,7 @@
 
     <!-- Bootstrap JS and Popper.js -->
     
-    
+    <link href="http:\\localhost\baitaplon\modules\user\home\add_service.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -330,20 +330,7 @@
         </a>
 
         <!-- Accordion for Invoice Management -->
-        <button class="accordion">
-            <i class="fa fa-file-invoice-dollar"></i>
-            <span class="link-text">Invoice Management</span>
-        </button>
-        <div class="panel">
-            <a href="?page_web=manager_service&action_web=bills">
-            <?php $page_web='bills'; ?>
-                <i class="fa fa-file-invoice"></i> <span class="link-text">Manage Bills</span>
-            </a>
-            <a href="?page_web=manager_service&action_web=payments">
-            <?php $page_web='payments'; ?>
-                <i class="fa fa-credit-card"></i> <span class="link-text">Manage Payments</span>
-            </a>
-        </div>
+       
 
         <a href="?page_web=manager_service&action_web=reports">
         <?php $page_web='reports'; ?>
@@ -368,8 +355,8 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="">
-                                <?php $page_web='home'; ?>
+                            <a class="nav-link" href="?page_web=manager_service&action_web=home">
+                             
                                 Home</a>
                         </li>
                         <li class="nav-item">
@@ -407,35 +394,35 @@
     </div>
 
     <!-- Main Content -->
-    <div class="content-section" id="mainContent">
+  
         <?php
         // $page_web = isset($_GET['page_web']) ? $_GET['page_web'] : 'dashboard';
 
-        switch ($page_web) {
-            case 'services':
-                include 'modules/admin/manager_service/services.php';
-                break;
-            case 'list':
-                include 'modules/admin/manager_service/list.php';
-                break;
-            case 'pre_screening':
-                include 'modules/admin/manager_service/pre_screening.php';
-                break;
-            case 'vaccine_records':
-                include 'modules/admin/manager_service/vaccine_records.php';
-                break;
-            case 'bills':
-                include 'modules/admin/manager_service/bills.php';
-                break;
-            case 'reports':
-                include 'modules/admin/manager_service/reports.php';
-                break;
-            case 'dashboard':
-                include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/dashboard.php';
-                break;
-            case 'home':
-                include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/home.php';
-                break;
-        }
+        // switch ($page_web) {
+        //     case 'services':
+        //         include 'modules/admin/manager_service/services.php';
+        //         break;
+        //     case 'list':
+        //         include 'modules/admin/manager_service/list.php';
+        //         break;
+        //     case 'pre_screening':
+        //         include 'modules/admin/manager_service/pre_screening.php';
+        //         break;
+        //     case 'vaccine_records':
+        //         include 'modules/admin/manager_service/vaccine_records.php';
+        //         break;
+        //     case 'bills':
+        //         include 'modules/admin/manager_service/bills.php';
+        //         break;
+        //     case 'reports':
+        //         include 'modules/admin/manager_service/reports.php';
+        //         break;
+        //     case 'dashboard':
+        //         include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/dashboard.php';
+        //         break;
+        //     case 'home':
+        //         include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/home.php';
+        //         break;
+        // }
         ?>
     </div>

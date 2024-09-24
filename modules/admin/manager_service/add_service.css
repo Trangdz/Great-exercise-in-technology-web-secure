@@ -1,0 +1,6 @@
+.title-service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Hoặc chỉnh theo chiều cao bạn muốn */
+  }
