@@ -1,0 +1,18 @@
+.news-details {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.action-buttons a, .action-buttons form {
+    margin-bottom: 5px;
+}
+
+.action-buttons form {
+    display: inline-block;
+}

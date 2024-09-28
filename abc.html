@@ -1,84 +1,85 @@
+<!-- <?php
+// Bước 1: Kết nối với cơ sở dữ liệu
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "your_database_name";  // Thay tên cơ sở dữ liệu của bạn
+
+// Tạo kết nối
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Kiểm tra kết nối
+if ($conn->connect_error) {
+    die("Kết nối thất bại: " . $conn->connect_error);
+}
+
+// Bước 2: Truy vấn dữ liệu từ bảng
+$sql = "SELECT id, title, content, image_url, created_at FROM news";
+$result = $conn->query($sql);
+
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form with Image Upload</title>
+    <title>Danh sách bài viết</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .news-container {
+            margin: 20px auto;
+            max-width: 800px;
         }
-        form {
-            max-width: 500px;
-            margin: auto;
+        .news-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
+            border-bottom: 1px solid #ddd;
         }
-        input[type="text"], input[type="password"], input[type="email"], input[type="file"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+        .news-item img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 5px;
         }
-        select, input[type="checkbox"] {
-            margin: 8px 0;
+        .news-details {
+            flex: 1;
         }
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
         }
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        .news-date {
+            color: #6c757d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .news-content {
+            color: #333;
+            font-size: 16px;
+        }
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
+
 <body>
 
-<h2>Form with Image Upload</h2>
+<div class="container news-container">
+    <img src="https://th.bing.com/th/id/OIP.tIwi-ODp5YBJqG4CKOt4UQHaEK?w=294&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Logged in">
 
-<form action="/submit-form" method="POST" enctype="multipart/form-data">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Email">
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Password">
-
-    <label for="address">Address</label>
-    <input type="text" id="address" name="address" placeholder="1234 Main St">
-
-    <label for="address2">Address 2</label>
-    <input type="text" id="address2" name="address2" placeholder="Apartment, studio, or floor">
-
-    <label for="city">City</label>
-    <input type="text" id="city" name="city" placeholder="City">
-
-    <label for="state">State</label>
-    <select id="state" name="state">
-        <option value="">Choose...</option>
-        <option value="NY">New York</option>
-        <option value="CA">California</option>
-        <!-- Add more states as necessary -->
-    </select>
-
-    <label for="zip">Zip</label>
-    <input type="text" id="zip" name="zip" placeholder="Zip Code">
-
-    <label for="file">Upload Image</label>
-    <input type="file" id="file" name="file">
-
-    <label for="checkout">Check me out</label>
-    <input type="checkbox" id="checkout" name="checkout">
-
-    <input type="submit" value="Sign in">
-</form>
-
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

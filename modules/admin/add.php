@@ -112,6 +112,7 @@ $content = getFlashData('content');
 ?>
 
 <!-- Form HTML -->
+<div class="content-section" id="mainContent">
 <div class='container'>
     <h3><?php echo $data['pageTitle']; ?></h3>
     <?php getMsg($msg, $msg_type); ?>
@@ -166,6 +167,6 @@ $content = getFlashData('content');
         </div>
     </form>
 </div>
-
+</div>
 <?php
 layout('footer-admin');

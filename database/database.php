@@ -1,12 +1,10 @@
 <!-- <?php
-        //  if(defined('_INCODE')) die('Access deined');
-
-        // 
-        ?> 
+// if (defined('_INCODE')) die('Access deined');
+?>
 <div>
     <p> ?php>echo $exception->getMessage(); ?></p>
-    <p> ?php  echo $exception->getFile(); ?>
-    <p> ?php  echo $exception->getLine(); ?>
+    <p> ?php echo $exception->getFile(); ?>
+    <p> ?php echo $exception->getLine(); ?>
 </div> -->
 
 <?php
@@ -16,7 +14,7 @@ if (!defined('_INCODE')) die('Access Denied...');
 function query($sql, $data = [])
 {
     global $conn;
-    $query=false;
+    $query = false;
     try {
         $statement = $conn->prepare(($sql));
         if (empty($data)) {
@@ -25,11 +23,11 @@ function query($sql, $data = [])
             $query = $statement->execute($data);
         }
     } catch (Exception $exception) {
-        
-        require_once 'module/error/database.php';
+
+        require_once 'D:\xampp\htdocs\baitaplon\modules\error\database.php';
         die(); // Dừng thực thi nếu có lỗi
     }
-    if($query){
+    if ($query) {
         return $statement;
     }
     return  $query;
@@ -66,7 +64,7 @@ function update($table, $dataUpdate, $condition = '')
 {
     $updateStr = '';
     $params = [];
-    
+
     foreach ($dataUpdate as $key => $value) {
         $updateStr .= $key . '=:' . $key . ', ';
         $params[':' . $key] = $value;
@@ -95,7 +93,8 @@ function delete($table, $condition = '')
 }
 
 // Lấy dữ liệu từ câu lệnh SQL
-function getRaw($sql) {
+function getRaw($sql)
+{
     $statement = query($sql, [], true);
     if (is_object($statement)) {
         $dataFetch = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -108,8 +107,7 @@ function getRaw($sql) {
 function firstRaw($sql)
 {
     $statement = query($sql, []);
-    if(is_object($statement))
-    {
+    if (is_object($statement)) {
         $dataFetch = $statement->fetch(PDO::FETCH_ASSOC);
         return $dataFetch;
     };

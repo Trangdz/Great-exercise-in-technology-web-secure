@@ -93,7 +93,7 @@ if (isLogin()) {
         <?php
         getMsg($msg, $msg_type);
         ?>
-        <a href="?module=users&action=add" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
+        <a href="http:\\localhost\baitaplon\index.php?module=admin&action=add" class="btn btn-success btn-sm"><i class="fa fa-plus"></i>
             Add user</a>
 
         <div class="tool-search">

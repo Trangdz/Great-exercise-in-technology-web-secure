@@ -3,8 +3,7 @@ session_start();
 ?>
 <?php
 require_once 'config.php';
-require_once 'database/connect_auth.php';
-require_once 'database/connect_service.php';
+require_once 'database/connect.php';
 require_once 'database/database.php';
 require_once 'includes/phpmailer/PHPMailer.php';
 require_once 'includes/phpmailer/SMTP.php';

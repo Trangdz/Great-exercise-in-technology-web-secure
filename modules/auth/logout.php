@@ -11,6 +11,7 @@ if(isLogin())
     $token=getSession('loginToken');
     delete('login_token',"token='$token'");
     removeSession('loginToken');
-    redirect('?module=auth&action=login');
+    header("Location:\baitaplon\index.php");
+    echo "da xoa thanh cong";
 }
-echo "kkk";
+header("Location:\baitaplon\index.php");

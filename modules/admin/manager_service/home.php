@@ -3,7 +3,7 @@ if (defined('_INCODE') != 1) {
     die('Access Denied');
 }
 if (!isLogin()) {
-    header("Location:http:\\localhost\baitaplon\modules\auth\login.php");
+    header('Location:/../../../../../baitaplon/index.php');
 }
 
 // require_once('D:\xampp\htdocs\baitaplon\templates\layout\header-admin.php');

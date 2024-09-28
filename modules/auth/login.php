@@ -153,3 +153,7 @@ $msg_type = getFlashData('msg_type');
 // Sửa dấu gạch ngược thành dấu gạch chéo trong đường dẫn
 
 layout('footer-login', $data);
+
+
+// D:\xampp\htdocs\baitaplon\modules\auth\logout.php
+// D:\xampp\htdocs\baitaplon\index.php

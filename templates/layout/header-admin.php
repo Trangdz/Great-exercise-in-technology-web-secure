@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,7 @@
     <!-- Bootstrap JS and Popper.js -->
     
     <link href="http:\\localhost\baitaplon\modules\user\home\add_service.css" rel="stylesheet">
+    <link href="http:\\localhost\baitaplon\modules\user\home\manage_service.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -273,12 +273,19 @@
             font-size: 14px;
             color: #6c757d;
         }
+        .form-group{
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
     </style>
 </head>
 
 <body>
 
     <!-- Sidebar Menu -->
+<div>
+
+</div>
     <div class="sidebar" id="sidebar">
 
         <h2>Admin Panel</h2>
@@ -293,8 +300,8 @@
             <span class="link-text">Services</span>
         </button>
         <div class="panel">
-            <a href="?page_web=manager_service&action_web=services">
-            <?php $page_web='services'; ?>
+            <a href="?page_web=manager_service&action_web=manage_service">
+           
                 <i class="fa fa-cog"></i> <span class="link-text">Manage Services</span>
             </a>
             <a href="?page_web=manager_service&action_web=add_service">
@@ -312,8 +319,8 @@
             <?php $page_web='list'; ?>
                 <i class="fa fa-user"></i> <span class="link-text">Manage Users</span>
             </a>
-            <a href="?page_web=manager_service&action_web=add_user">
-            <?php $page_web='add_user'; ?>
+            <a href="http:\\localhost\baitaplon\index.php?module=admin&action=add">
+           
                 <i class="fa fa-user-plus"></i> <span class="link-text">Add New User</span>
             </a>
         </div>
@@ -363,7 +370,7 @@
                             <a class="nav-link" href="#">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="http:\\location\baitaplon\modules\auth\login.php">Contact</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -372,11 +379,9 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                                <li><a class="dropdown-item" href="#">Privacy Settings</a></li>
+                                <li><a class="dropdown-item" href="http:\\localhost\baitaplon\index.php?module=auth&action=logout&loginToken=".$loginToken>Log out</a></li>
                                
-                                <a class="dropdown-item" href="../../index.php?module=auth&action=logout">
-                                     Logout 
-                                    </a></li>
+                                
                             </ul>
                         </li>
                     </ul>
@@ -395,34 +400,4 @@
 
     <!-- Main Content -->
   
-        <?php
-        // $page_web = isset($_GET['page_web']) ? $_GET['page_web'] : 'dashboard';
-
-        // switch ($page_web) {
-        //     case 'services':
-        //         include 'modules/admin/manager_service/services.php';
-        //         break;
-        //     case 'list':
-        //         include 'modules/admin/manager_service/list.php';
-        //         break;
-        //     case 'pre_screening':
-        //         include 'modules/admin/manager_service/pre_screening.php';
-        //         break;
-        //     case 'vaccine_records':
-        //         include 'modules/admin/manager_service/vaccine_records.php';
-        //         break;
-        //     case 'bills':
-        //         include 'modules/admin/manager_service/bills.php';
-        //         break;
-        //     case 'reports':
-        //         include 'modules/admin/manager_service/reports.php';
-        //         break;
-        //     case 'dashboard':
-        //         include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/dashboard.php';
-        //         break;
-        //     case 'home':
-        //         include 'D:/xampp/htdocs/baitaplon/modules/admin/manager_service/home.php';
-        //         break;
-        // }
-        ?>
     </div>
