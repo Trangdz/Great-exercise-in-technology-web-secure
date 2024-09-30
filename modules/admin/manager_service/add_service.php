@@ -9,9 +9,9 @@ if (!defined('_INCODE') == 1) {
 
   
 // }
-if (!isLogin()) {
-  redirect('?module=auth&action=login');
-}
+// if (!isLogin()) {
+//   redirect('\baitaplon\index.php?module=auth&action=login');
+// }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $body = getBody();

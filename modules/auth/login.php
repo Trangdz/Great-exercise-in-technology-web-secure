@@ -27,7 +27,7 @@ if (isPost()) {
        
         //Query take inform fllowing email
         $userQuery = firstRaw("SELECT id, password,role FROM user WHERE email ='$email' AND status=1");
-        var_dump($userQuery);
+        
         //  var_dump($userQuery);
         if (!empty($userQuery)) {
             $passwordHash = $userQuery['password'];
@@ -59,14 +59,15 @@ if (isPost()) {
                    
                     var_dump($role);
                     $_SESSION['role']=$role;
+                    $_SESSION['id']= $userId;
                     if($role==='1')
                     {
                        
-                        header("Location:/baitaplon/modules/admin/index.php");
+                        redirect('\baitaplon\modules\admin\index.php');
                     }
                     else
                     {
-                        header("Location: /baitaplon/modules/user/index.php");
+                        redirect('\baitaplon\modules\user\index.php');
                     }
                   
                 //    echo $_SESSION['loginToken'];

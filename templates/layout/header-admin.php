@@ -304,8 +304,7 @@
            
                 <i class="fa fa-cog"></i> <span class="link-text">Manage Services</span>
             </a>
-            <a href="?page_web=manager_service&action_web=add_service">
-            <?php $page_web='add_service'; ?>
+            <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=add_service">
                 <i class="fa fa-plus"></i> <span class="link-text">Add New Service</span>
             </a>
         </div>
@@ -325,15 +324,17 @@
             </a>
         </div>
 
-        <a href="?page_web=manager_service&action_web=pre_screening">
-        <?php $page_web='pre_screening'; ?>
+        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=manage_screening">
             <i class="fa fa-stethoscope"></i>
-            <span class="link-text">Vaccination Service</span>
+            <span class="link-text">Manage screening sheets </span>
         </a>
-        <a href="?page_web=manager_service&action_web=vaccine_records">
-        <?php $page_web='vaccine_records'; ?>
+        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=vaccine_records">
             <i class="fa fa-medkit"></i>
-            <span class="link-text">Vaccination Card</span>
+            <span class="link-text">Manage vaccination cards</span>
+        </a>
+        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=vaccine_records">
+            <i class="fa fa-medkit"></i>
+            <span class="link-text">Manage invoices</span>
         </a>
 
         <!-- Accordion for Invoice Management -->

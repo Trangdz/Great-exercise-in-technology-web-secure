@@ -11,8 +11,8 @@ if (!defined('_INCODE') == 1) {
   
 // }
 if (!isLogin()) {
-    redirect('?module=auth&action=login');
-}
+    redirect('\baitaplon\index.php?module=auth&action=login');
+  }
 // Lấy id của dịch vụ từ URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -91,6 +91,6 @@ if (isset($_GET['id'])) {
             </div>
         </div>
 
-        <a href="index.php" class="btn btn-secondary" style="margin-top: 20px;">Quay lại danh sách</a>
+        <a href="\baitaplon\modules\admin\index.php?action_page=manager&action_web=manage_service" class="btn btn-secondary" style="margin-top: 20px;">Quay lại danh sách</a>
     </div>
 </div>

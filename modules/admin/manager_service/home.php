@@ -3,9 +3,8 @@ if (defined('_INCODE') != 1) {
     die('Access Denied');
 }
 if (!isLogin()) {
-    header('Location:/../../../../../baitaplon/index.php');
-}
-
+    redirect('\baitaplon\index.php?module=auth&action=login');
+  }
 // require_once('D:\xampp\htdocs\baitaplon\templates\layout\header-admin.php');
 ?>
 <div class="content-section" id="mainContent">

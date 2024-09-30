@@ -10,7 +10,7 @@
      
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+    <link href="http:\\localhost\baitaplon\modules\user\home\all_service.css" rel="stylesheet">
     <link href="http:\\localhost\baitaplon\modules\user\home\service.css" rel="stylesheet">
     <link href="http:\\localhost\baitaplon\modules\user\home\home_user.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -38,11 +38,11 @@
                         <a class="nav-link active" aria-current="page" href="?page_web=home&action_web=home_user">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?page_web=home&action_web=service">Service</a>
+                        <a class="nav-link" href="?page_web=home&action_web=all_service">Service</a>
                     </li>
                    
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="http:\\localhost\baitaplon\modules\user\index.php?page_web=home&action_web=screening_slip">Screening Slip</a>
                     </li>
                     <!-- Dropdown Settings -->
                     <li class="nav-item dropdown">

@@ -9,8 +9,8 @@ if (!defined('_INCODE') == 1) {
 //     exit();
 // }
 if (!isLogin()) {
-    redirect('?module=auth&action=login');
-}
+    redirect('\baitaplon\index.php?module=auth&action=login');
+  }
 // Truy vấn dữ liệu từ bảng "dichvutiemchung"
 $sql = 'SELECT * FROM dichvutiemchung';
 $dataService = getRaw($sql);

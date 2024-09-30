@@ -1,0 +1,72 @@
+.card-service-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-service {
+    width: 24%; /* Đảm bảo 4 thẻ trên mỗi hàng */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Đảm bảo chiều cao thẻ luôn bằng nhau */
+}
+
+.card-service:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.card-service img {
+    width: 100%;
+    height: 150px; /* Đảm bảo chiều cao cố định cho hình ảnh */
+    object-fit: cover; /* Giữ tỉ lệ hình ảnh */
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1; /* Để nội dung mô tả có thể co dãn hợp lý */
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #777;
+    height: 50px; /* Cố định chiều cao cho mô tả */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price {
+    font-size: 16px;
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: auto; /* Đặt nút ở cuối thẻ */
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}

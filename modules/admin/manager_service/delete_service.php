@@ -10,8 +10,8 @@ if (!defined('_INCODE') == 1) {
 //     exit();
 // }
 if (!isLogin()) {
-    redirect('?module=auth&action=login');
-}
+    redirect('\baitaplon\index.php?module=auth&action=login');
+  }
 $body = getBody();
 $serviceId = $body['id'];
 

@@ -5,8 +5,8 @@ if (!defined('_INCODE') == 1) {
 
 
 if (!isLogin()) {
-    redirect('?module=auth&action=login');
-}
+    redirect('\baitaplon\index.php?module=auth&action=login');
+  }
 
 
 if (isLogin()) {

@@ -4,7 +4,7 @@ if (!defined('_INCODE') == 1) {
 }
 
 if (!isLogin()) {
-    redirect('?module=auth&action=login');
+    redirect('http:\\localhost\baitaplon\index.php?module=auth&action=login');
 }
 
 $data = [
