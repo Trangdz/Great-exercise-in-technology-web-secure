@@ -91,7 +91,7 @@ if (isset($_GET['id'])) {
         <!-- Button section -->
         <div style="text-align: center; margin-top: 30px;">
             <a href="index.php" class="btn btn-secondary" style="display: inline-block; padding: 15px 25px; background-color: #17a2b8; color: white; text-decoration: none; border-radius: 8px; font-size: 18px; margin-right: 20px;">Quay lại danh sách</a>
-            <a href="register.php?id=<?php echo $id; ?>" class="btn btn-primary" style="display: inline-block; padding: 15px 25px; background-color: #28a745; color: white; text-decoration: none; border-radius: 8px; font-size: 18px;">Đăng ký ngay</a>
+            <a href="\baitaplon\modules\user\index.php?page_web=home&action_web=register_service&id=<?php echo $id; ?>" class="btn btn-primary" style="display: inline-block; padding: 15px 25px; background-color: #28a745; color: white; text-decoration: none; border-radius: 8px; font-size: 18px;">Đăng ký ngay</a>
         </div>
     </div>
 </div>

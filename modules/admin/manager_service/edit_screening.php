@@ -8,16 +8,20 @@ if (!isLogin()) {
 }
 
 $data = [
-    'pageTitle' => 'Edit users'
+    'pageTitle' => 'Edit screenning'
 ];
 
 $errors = [];
 //Take id , examine Do it have exist>
 $body = getBody();
-if (!empty($body['id'])) {
-    $userId = $body['id'];
-    $getInfor = firstRaw("SELECT * FROM user WHERE id = '$userId'");
-
+if (!empty($body['ma_khach_hang'])) {
+    $userId = $body['ma_khach_hang'];
+    $getInfor = firstRaw("SELECT user.fullname, user.phone, user.email, ls.ngay_kham, ls.tinh_trang_suc_khoe, ls.tieu_su_benh_ly, ls.dieu_kien_tiem, ls.ma_khach_hang
+                           FROM user 
+                           INNER JOIN phieukhamsangloc AS ls 
+                           ON user.id = ls.ma_khach_hang 
+                           WHERE id = '$userId'
+                           ");
     if (!empty($getInfor)) {
 
         setFlashData('content', $getInfor);

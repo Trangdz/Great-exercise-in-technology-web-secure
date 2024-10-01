@@ -21,9 +21,3 @@ const _USER = 'root';                // Tên người dùng MySQL
 const _PASS = '';               // Mật khẩu của người dùng (Xampp có thể để trống)
 const _DB = 'phponline';             // Tên cơ sở dữ liệu
 const _DRIVER = 'mysql';             // Loại cơ sở dữ liệu
-
-const _HOST_SERVICE = 'localhost';           // Địa chỉ máy chủ (localhost cho máy cục bộ)
-const _USER_HOST_SERVICE = 'root';                // Tên người dùng MySQL
-const _PASS_HOST_SERVICE = '';               // Mật khẩu của người dùng (Xampp có thể để trống)
-const _DB_HOST_SERVICE = 'csdl_tiem_chung';             // Tên cơ sở dữ liệu
-const _DRIVER_HOST_SERVICE = 'mysql';             // Loại cơ sở dữ liệu

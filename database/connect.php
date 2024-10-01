@@ -7,7 +7,7 @@ try {
     // Kiểm tra xem lớp PDO có tồn tại không
     if (class_exists('PDO')) {
         // Tạo chuỗi DSN cho kết nối PDO
-        $dsn = _DRIVER.':dbname='._DB .';host='._HOST.';port=4444';
+        $dsn = _DRIVER.':dbname='._DB .';host='._HOST.';port=3306';
 
         // Thiết lập các tùy chọn cho kết nối PDO
         $options = [

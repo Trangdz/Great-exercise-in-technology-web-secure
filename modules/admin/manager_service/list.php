@@ -48,7 +48,7 @@ if (isLogin()) {
     $allUserNumber = getRow("SELECT id FROM user $filter ");
 
     //Identify records on a page
-    $perPage = 2;
+    $perPage = 10;
 
     //Caculator the number of pages
 
@@ -147,8 +147,8 @@ if (isLogin()) {
                             <td><?php echo $item['email']; ?></td>
                             <td><?php echo $item['phone']; ?></td>
                             <td><?php echo $item['status'] == 1 ? '<button type="submit" class="btn btn-success btn-sm" style="padding-left:11px; padding-right:11px">Active</button>' : '<button type="submit" class="btn btn-warning btn-sm">Passive</button>'; ?></td>
-                            <td><a href=<?php echo _WEB_HOST_ROOT . '?page_web=admin&action=edit&id=' . $item['id'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
-                            <td><a href=<?php echo _WEB_HOST_ROOT . '?page_web=admin&action=delete&id=' . $item['id'] ?> onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
+                            <td><a href=<?php echo '\baitaplon\index.php?module=admin&action=edit&id=' . $item['id'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
+                            <td><a href=<?php echo '\baitaplon\index.php?module=admin&action=delete&id=' . $item['id'] ?> onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
 
                     <?php endforeach; ?>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
 
 
     <!-- Bootstrap JS and Popper.js -->
-    
+
     <link href="http:\\localhost\baitaplon\modules\user\home\add_service.css" rel="stylesheet">
     <link href="http:\\localhost\baitaplon\modules\user\home\manage_service.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -147,8 +148,8 @@
             font-size: 14px;
             padding: 20px;
             background-color: #f8f9fa;
-            margin-left: 270px;
-            border-top: 1px solid #ddd;
+            
+            /* border-top: 1px solid #ddd; */
             transition: margin-left 0.3s ease;
         }
 
@@ -184,12 +185,17 @@
             height: 30px;
             /* Tự động điều chỉnh chiều cao theo tỷ lệ */
         }
+
         .centered-image {
-        max-width: 100%; /* Hình ảnh không vượt quá chiều rộng của thẻ chứa */
-        height: auto; /* Chiều cao tự động tính theo tỷ lệ */
-        display: inline-block; /* Hiển thị hình ảnh như một phần tử inline-block */
-    }
-    body {
+            max-width: 100%;
+            /* Hình ảnh không vượt quá chiều rộng của thẻ chứa */
+            height: auto;
+            /* Chiều cao tự động tính theo tỷ lệ */
+            display: inline-block;
+            /* Hiển thị hình ảnh như một phần tử inline-block */
+        }
+
+        body {
             font-family: Arial, sans-serif;
         }
 
@@ -249,11 +255,23 @@
             /* text-align: center;
             align-items: center;
             justify-content: center; */
-            width:auto;
+            width: auto;
             /* margin-right: 40px; */
             position: relative;
-        right: 80px;
+            right: 80px;
         }
+
+        footer {
+            text-align: center;
+            font-size: 14px;
+            padding: 20px;
+          
+           
+            /* border-top: 1px solid #ddd; */
+            transition: margin-left 0.3s ease;
+        }
+
+
 
         footer a {
             color: #ffc107;
@@ -273,7 +291,8 @@
             font-size: 14px;
             color: #6c757d;
         }
-        .form-group{
+
+        .form-group {
             font-size: 20px;
             margin-bottom: 25px;
         }
@@ -283,9 +302,9 @@
 <body>
 
     <!-- Sidebar Menu -->
-<div>
+    <div>
 
-</div>
+    </div>
     <div class="sidebar" id="sidebar">
 
         <h2>Admin Panel</h2>
@@ -301,7 +320,7 @@
         </button>
         <div class="panel">
             <a href="?page_web=manager_service&action_web=manage_service">
-           
+
                 <i class="fa fa-cog"></i> <span class="link-text">Manage Services</span>
             </a>
             <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=add_service">
@@ -315,11 +334,11 @@
         </button>
         <div class="panel">
             <a href="?page_web=manager_service&action_web=list">
-            <?php $page_web='list'; ?>
+                <?php $page_web = 'list'; ?>
                 <i class="fa fa-user"></i> <span class="link-text">Manage Users</span>
             </a>
             <a href="http:\\localhost\baitaplon\index.php?module=admin&action=add">
-           
+
                 <i class="fa fa-user-plus"></i> <span class="link-text">Add New User</span>
             </a>
         </div>
@@ -338,10 +357,10 @@
         </a>
 
         <!-- Accordion for Invoice Management -->
-       
+
 
         <a href="?page_web=manager_service&action_web=reports">
-        <?php $page_web='reports'; ?>
+            <?php $page_web = 'reports'; ?>
             <i class="fa fa-bar-chart"></i>
             <span class="link-text">Revenue Statistics</span>
         </a>
@@ -364,7 +383,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="?page_web=manager_service&action_web=home">
-                             
+
                                 Home</a>
                         </li>
                         <li class="nav-item">
@@ -380,9 +399,9 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                                <li><a class="dropdown-item" href="http:\\localhost\baitaplon\index.php?module=auth&action=logout&loginToken=".$loginToken>Log out</a></li>
-                               
-                                
+                                <li><a class="dropdown-item" href="http:\\localhost\baitaplon\index.php?module=auth&action=logout&loginToken=" .$loginToken>Log out</a></li>
+
+
                             </ul>
                         </li>
                     </ul>
@@ -400,5 +419,5 @@
     </div>
 
     <!-- Main Content -->
-  
+
     </div>
