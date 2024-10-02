@@ -1,85 +1,126 @@
-<!-- <?php
-// Bước 1: Kết nối với cơ sở dữ liệu
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "your_database_name";  // Thay tên cơ sở dữ liệu của bạn
-
-// Tạo kết nối
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
-}
-
-// Bước 2: Truy vấn dữ liệu từ bảng
-$sql = "SELECT id, title, content, image_url, created_at FROM news";
-$result = $conn->query($sql);
-
-?> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách bài viết</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <title>Hóa Đơn Thanh Toán</title>
     <style>
-        .news-container {
-            margin: 20px auto;
-            max-width: 800px;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
         }
-        .news-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .invoice-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .invoice-header {
+            background-color: #28a745;
             padding: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        .news-item img {
-            width: 150px;
-            height: 100px;
-            object-fit: cover;
-            margin-right: 20px;
-            border-radius: 5px;
-        }
-        .news-details {
-            flex: 1;
-        }
-        .news-title {
-            font-size: 18px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
             font-weight: bold;
-            color: #007bff;
         }
-        .news-date {
-            color: #6c757d;
-            font-size: 14px;
-            margin-bottom: 10px;
+        .invoice-body {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px; /* Tăng khoảng cách giữa các trường */
         }
-        .news-content {
-            color: #333;
+        .invoice-body label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .invoice-body input {
+            width: 100%;
+            padding: 12px;
             font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background-color: #f9f9f9;
         }
-        .pagination {
-            justify-content: center;
-            margin-top: 20px;
+        .invoice-body input:disabled {
+            background-color: #e9ecef;
         }
-        .action-buttons {
-            display: flex;
-            gap: 10px;
+        .invoice-footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .submit-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #218838;
+        }
+        .full-width {
+            grid-column: 1 / span 2;
+        }
+        /* Căn chỉnh để các phần tử input có khoảng cách đều hơn */
+        .invoice-body div {
+            margin-bottom: 20px; /* Khoảng cách giữa các nhóm input */
         }
     </style>
 </head>
-
 <body>
 
-<div class="container news-container">
-    <img src="https://th.bing.com/th/id/OIP.tIwi-ODp5YBJqG4CKOt4UQHaEK?w=294&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Logged in">
+    <div class="invoice-container">
+        <div class="invoice-header">
+            Hóa Đơn Thanh Toán
+        </div>
+        <div class="invoice-body">
+            <div>
+                <label for="ma_phieu_tiem_chung">Mã phiếu tiêm chủng:</label>
+                <input type="text" name="ma_phieu_tiem_chung" id="ma_phieu_tiem_chung" value="12345" disabled>
+            </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            <div>
+                <label for="ten_khach_hang">Tên khách hàng:</label>
+                <input type="text" name="ten_khach_hang" id="ten_khach_hang" value="Nguyễn Văn A" disabled>
+            </div>
+
+            <div>
+                <label for="ten_vacxin">Tên vắc xin:</label>
+                <input type="text" name="ten_vacxin" id="ten_vacxin" value="Vắc xin ABC" disabled>
+            </div>
+
+            <div>
+                <label for="tong_tien">Tổng tiền:</label>
+                <input type="text" name="tong_tien" id="tong_tien" value="500,000 VND" disabled>
+            </div>
+
+            <div>
+                <label for="ngay_lap">Ngày lập:</label>
+                <input type="date" name="ngay_lap" id="ngay_lap" value="2024-10-01" disabled>
+            </div>
+
+            <div>
+                <label for="trang_thai">Trạng thái:</label>
+                <input type="text" name="trang_thai" id="trang_thai" value="Đã thanh toán" disabled>
+            </div>
+
+            <div class="full-width">
+                <input type="submit" value="Xác nhận" class="submit-button">
+            </div>
+        </div>
+        <div class="invoice-footer">
+            Cảm ơn quý khách đã sử dụng dịch vụ!
+        </div>
+    </div>
+
 </body>
 </html>

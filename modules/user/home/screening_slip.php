@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
  
     $dataInsert=[
      'ma_khach_hang' => $_SESSION['id'],
-      'ngay_kham'=> $body['date'],
+      'ngay_kham'=> date('Y-m-d H:i:s'),
       'tinh_trang_suc_khoe'=>$body['tinh_trang_suc_khoe'],
       'tieu_su_benh_ly'=>$body['tieu_su_benh_ly'],
     ];
@@ -71,8 +71,8 @@ $msg_type=getFlashData('msg_type');
             <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>"  disabled style="padding: 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px;">
 
             <!-- Ngày Khám -->
-            <label for="date" style="font-weight: bold; font-size: 16px;">Ngày Khám:</label>
-            <input type="date" name="date" style="padding: 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px;">
+            <!-- <label for="date" style="font-weight: bold; font-size: 16px;">Ngày Khám:</label>
+            <input type="datet" name="date" style="padding: 15px; font-size: 16px; border: 1px solid #ccc; border-radius: 6px;"> -->
 
             <!-- Tình Trạng Sức Khỏe -->
             <label for="tinh_trang_suc_khoe" style="font-weight: bold; font-size: 16px;">Tình Trạng Sức Khỏe:</label>

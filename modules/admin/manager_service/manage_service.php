@@ -49,7 +49,7 @@ $dataService = getRaw($sql);
                     <!-- Hiển thị thông tin dịch vụ -->
                     <div class="news-details" style="flex-grow: 1;">
                         <h3 class="news-title" style="font-size: 18px; color: #333;">
-                            <?php echo htmlspecialchars($row['ten_dich_vu']); ?>
+                            <?php echo htmlspecialchars($row['ten_vacxin']); ?>
                         </h3>
                         <p class="news-date" style="color: gray;">
                             <?php echo date("d-m-Y", strtotime($row['ngay_tao'])); ?>

@@ -122,9 +122,9 @@ require_once 'D:\xampp\htdocs\baitaplon\templates\layout\header.php';
 
                 // Hiển thị dịch vụ
                 echo '<div class="card-service">';
-                echo '<img src="' . $img_base64 . '" alt="' . htmlspecialchars($dichVu['ten_dich_vu']) . '">';
+                echo '<img src="' . $img_base64 . '" alt="' . htmlspecialchars($dichVu['ten_vacxin']) . '">';
                 echo '<div class="card-body">';
-                echo '<h5 class="card-title">' . htmlspecialchars($dichVu['ten_dich_vu']) . '</h5>';
+                echo '<h5 class="card-title">' . htmlspecialchars($dichVu['ten_vacxin']) . '</h5>';
                 echo '<p class="card-text">' . $mo_ta_ngan . '</p>';
                 echo '<p class="price">' . number_format($dichVu['gia'], 0, ',', '.') . 'đ</p>';
                 echo '<a href="\baitaplon\modules\user\index.php?page_web=home&action_web=detail_service&id=' . $dichVu['id'] . '" class="btn btn-primary">Xem thêm</a>'; // Nút xem thêm liên kết đến trang chi tiết

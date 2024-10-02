@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Lưu dữ liệu vào cơ sở dữ liệu
     $dataInsert = [
-      'ten_dich_vu' => $body['ten_dich_vu'],
+      'ten_vacxin' => $body['ten_vacxin'],
       'loai_dich_vu' => $body['loai_dich_vu'],
       'anh_dich_vu'  => $imageData, // Lưu nội dung ảnh
       'gia' => $body['gia_dich_vu'],
@@ -63,7 +63,7 @@ $msg_type = getFlashData('msg_type');
     <div class="row mb-3">
       <div class="col-md-6">
         <label for="tenDichVu" class="form-label">Tên Dịch Vụ</label>
-        <input type="text" class="form-control" name="ten_dich_vu" id="tenDichVu" placeholder="Tên Dịch Vụ" autocomplete="off">
+        <input type="text" class="form-control" name="ten_vacxin" id="tenDichVu" placeholder="Tên Dịch Vụ" autocomplete="off">
       </div>
       <div class="col-md-6">
         <label for="loaiDichVu" class="form-label">Loại Dịch Vụ</label>

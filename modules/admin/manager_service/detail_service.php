@@ -35,7 +35,7 @@ if (isset($_GET['id'])) {
 <div class="content-section" id="mainContent">
     <div class="container">
       
-        <h2>Chi tiết dịch vụ: <?php echo isset($dataService[0]['ten_dich_vu']) ? htmlspecialchars($dataService[0]['ten_dich_vu']) : 'Không có tên dịch vụ'; ?></h2>
+        <h2>Chi tiết dịch vụ: <?php echo isset($dataService[0]['ten_vacxin']) ? htmlspecialchars($dataService[0]['ten_vacxin']) : 'Không có tên dịch vụ'; ?></h2>
         <div class="service-detail" style="display: flex; margin-top: 20px;">
             <!-- Hiển thị ảnh dịch vụ -->
             <div style="margin-right: 20px;">

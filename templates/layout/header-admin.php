@@ -334,7 +334,7 @@
         </button>
         <div class="panel">
             <a href="?page_web=manager_service&action_web=list">
-                <?php $page_web = 'list'; ?>
+               
                 <i class="fa fa-user"></i> <span class="link-text">Manage Users</span>
             </a>
             <a href="http:\\localhost\baitaplon\index.php?module=admin&action=add">
@@ -351,7 +351,7 @@
             <i class="fa fa-medkit"></i>
             <span class="link-text">Manage vaccination cards</span>
         </a>
-        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=vaccine_records">
+        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=bills">
             <i class="fa fa-medkit"></i>
             <span class="link-text">Manage invoices</span>
         </a>

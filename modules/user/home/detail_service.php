@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
 <div class="content-section" id="mainContent" style="font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 30px;">
     <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 30px; background-color: white; border: 1px solid #ddd; border-radius: 12px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
         <h2 style="text-align: center; color: #D6336C; font-weight: bold; font-size: 28px;">Chi tiết dịch vụ: 
-            <?php echo isset($dataService[0]['ten_dich_vu']) ? htmlspecialchars($dataService[0]['ten_dich_vu']) : 'Không có tên dịch vụ'; ?>
+            <?php echo isset($dataService[0]['ten_vacxin']) ? htmlspecialchars($dataService[0]['ten_vacxin']) : 'Không có tên dịch vụ'; ?>
         </h2>
         
         <div class="service-detail" style="display: flex; margin-top: 30px; justify-content: space-between;">
