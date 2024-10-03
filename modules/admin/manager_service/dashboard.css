@@ -1,0 +1,97 @@
+body {
+    background-color: #f4f4f4; /* Nền xám nhạt */
+    color: #333333; /* Chữ xám đậm */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho header */
+    color: white; /* Chữ trắng */
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.time-selector {
+    margin-top: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+.summary {
+    background: white; /* Nền trắng cho phần tóm tắt */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    position: relative;
+    height: 40vh;
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.filters {
+    background: white; /* Nền trắng cho phần lọc dữ liệu */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+button.apply-filter {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho nút */
+    color: white; /* Chữ trắng */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.transaction-table {
+    background: white; /* Nền trắng cho bảng giao dịch */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Đường viền cho ô */
+    text-align: left;
+}
+
+th {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho tiêu đề bảng */
+    color: white; /* Chữ trắng */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho footer */
+    color: white; /* Chữ trắng */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

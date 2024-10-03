@@ -1,126 +1,267 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hóa Đơn Thanh Toán</title>
+    <title>Thống Kê Doanh Thu</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
-        .invoice-container {
-            max-width: 700px;
-            margin: 50px auto;
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        .invoice-header {
-            background-color: #28a745;
-            padding: 20px;
-            text-align: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .invoice-body {
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 20px; /* Tăng khoảng cách giữa các trường */
-        }
-        .invoice-body label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        .invoice-body input {
-            width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background-color: #f9f9f9;
-        }
-        .invoice-body input:disabled {
-            background-color: #e9ecef;
-        }
-        .invoice-footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #f8f9fa;
-        }
-        .submit-button {
-            background-color: #28a745;
-            color: white;
-            padding: 12px 24px;
-            font-size: 18px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .submit-button:hover {
-            background-color: #218838;
-        }
-        .full-width {
-            grid-column: 1 / span 2;
-        }
-        /* Căn chỉnh để các phần tử input có khoảng cách đều hơn */
-        .invoice-body div {
-            margin-bottom: 20px; /* Khoảng cách giữa các nhóm input */
-        }
+    background-color: #f4f4f4; /* Nền xám nhạt */
+    color: #333333; /* Chữ xám đậm */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho header */
+    color: white; /* Chữ trắng */
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.time-selector {
+    margin-top: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+.summary {
+    background: white; /* Nền trắng cho phần tóm tắt */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    position: relative;
+    height: 40vh;
+    width: 80vw;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.filters {
+    background: white; /* Nền trắng cho phần lọc dữ liệu */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+button.apply-filter {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho nút */
+    color: white; /* Chữ trắng */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.transaction-table {
+    background: white; /* Nền trắng cho bảng giao dịch */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd; /* Đường viền cho ô */
+    text-align: left;
+}
+
+th {
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho tiêu đề bảng */
+    color: white; /* Chữ trắng */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(92, 78, 127); /* Màu tím nhạt cho footer */
+    color: white; /* Chữ trắng */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-
-    <div class="invoice-container">
-        <div class="invoice-header">
-            Hóa Đơn Thanh Toán
+    <header>
+        <div class="logo">Logo Công Ty</div>
+        <h1>Thống Kê Doanh Thu</h1>
+        <div class="time-selector">
+            <label for="time-range">Thời gian:</label>
+            <select id="time-range">
+                <option value="today">Hôm nay</option>
+                <option value="week">Tuần này</option>
+                <option value="month">Tháng này</option>
+                <option value="year">Năm này</option>
+            </select>
         </div>
-        <div class="invoice-body">
-            <div>
-                <label for="ma_phieu_tiem_chung">Mã phiếu tiêm chủng:</label>
-                <input type="text" name="ma_phieu_tiem_chung" id="ma_phieu_tiem_chung" value="12345" disabled>
-            </div>
+    </header>
 
-            <div>
-                <label for="ten_khach_hang">Tên khách hàng:</label>
-                <input type="text" name="ten_khach_hang" id="ten_khach_hang" value="Nguyễn Văn A" disabled>
+    <main>
+        <section class="summary">
+            <h2>Tổng Doanh Thu: <span class="total-revenue">10,000,000 VNĐ</span></h2>
+            <div class="chart-container">
+                <canvas id="revenueChart"></canvas>
             </div>
+        </section>
 
-            <div>
-                <label for="ten_vacxin">Tên vắc xin:</label>
-                <input type="text" name="ten_vacxin" id="ten_vacxin" value="Vắc xin ABC" disabled>
+        <section class="summary">
+            <h2>Phân Tích Theo Danh Mục</h2>
+            <div class="chart-container">
+                <canvas id="categoryChart"></canvas>
             </div>
+        </section>
 
-            <div>
-                <label for="tong_tien">Tổng tiền:</label>
-                <input type="text" name="tong_tien" id="tong_tien" value="500,000 VND" disabled>
-            </div>
+        <section class="filters">
+            <h3>Lọc Dữ Liệu</h3>
+            <label for="category">Danh mục:</label>
+            <select id="category">
+                <option value="all">Tất cả</option>
+                <option value="product1">Sản phẩm 1</option>
+                <option value="product2">Sản phẩm 2</option>
+            </select>
+            <button class="apply-filter">Áp Dụng Lọc</button>
+        </section>
 
-            <div>
-                <label for="ngay_lap">Ngày lập:</label>
-                <input type="date" name="ngay_lap" id="ngay_lap" value="2024-10-01" disabled>
-            </div>
+        <section class="transaction-table">
+            <h3>Danh Sách Giao Dịch</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Ngày</th>
+                        <th>Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Doanh Thu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01/10/2024</td>
+                        <td>Sản phẩm A</td>
+                        <td>5</td>
+                        <td>1,000,000 VNĐ</td>
+                    </tr>
+                    <tr>
+                        <td>02/10/2024</td>
+                        <td>Sản phẩm B</td>
+                        <td>10</td>
+                        <td>2,000,000 VNĐ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
 
-            <div>
-                <label for="trang_thai">Trạng thái:</label>
-                <input type="text" name="trang_thai" id="trang_thai" value="Đã thanh toán" disabled>
-            </div>
+    <footer>
+        <p>Thông tin liên hệ: hỗ trợ@congty.com</p>
+        <p>© 2024 Công Ty ABC</p>
+    </footer>
 
-            <div class="full-width">
-                <input type="submit" value="Xác nhận" class="submit-button">
-            </div>
-        </div>
-        <div class="invoice-footer">
-            Cảm ơn quý khách đã sử dụng dịch vụ!
-        </div>
-    </div>
+    <script>
+        // Biểu đồ doanh thu
+        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        const revenueChart = new Chart(ctxRevenue, {
+            type: 'bar', // Biểu đồ cột
+            data: {
+                labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7'],
+                datasets: [{
+                    label: 'Doanh Thu (VNĐ)',
+                    data: [12000000, 15000000, 13000000, 17000000, 16000000, 18000000, 20000000],
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Biểu Đồ Doanh Thu'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Doanh Thu (VNĐ)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Tháng'
+                        }
+                    }
+                }
+            }
+        });
 
+        // Biểu đồ tròn
+        const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+        const categoryChart = new Chart(ctxCategory, {
+            type: 'pie', // Biểu đồ tròn
+            data: {
+                labels: ['Sản phẩm A', 'Sản phẩm B', 'Sản phẩm C'],
+                datasets: [{
+                    label: 'Tỷ Lệ Doanh Thu',
+                    data: [30, 50, 20], // Tỷ lệ doanh thu của từng sản phẩm
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'Phân Tích Doanh Thu Theo Danh Mục'
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
