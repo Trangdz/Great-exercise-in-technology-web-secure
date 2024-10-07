@@ -8,6 +8,41 @@ if (!isLogin()) {
 }
 
 if (isLogin()) {
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+        $id = (int)$_POST['id']; // Lấy ID của hóa đơn
+        $trang_thai = (int)$_POST['dieu_kien_tiem']; // Lấy trạng thái mới từ POST
+
+        // Dữ liệu cần cập nhật
+        $dataUpdate = [
+            'dieu_kien_tiem' => $trang_thai
+        ];
+        // $latestRecord = getRow("SELECT ngay_kham FROM phieukhamsangloc WHERE id = $id ORDER BY ngay_kham DESC LIMIT 1");
+        // Thực hiện cập nhật trạng thái trong cơ sở dữ liệu với điều kiện id
+
+        // Lấy thời gian gần nhất từ bảng phieukhamsangloc
+       
+
+        // Kiểm tra nếu tồn tại bản ghi với thời gian gần nhất
+        // if (!empty($latestRecord)) {
+        //     $latestNgayKham = $latestRecord['ngay_kham'];
+
+            // Thực hiện cập nhật bản ghi với mã khách hàng và thời gian gần nhất
+            $updateResult = update('phieukhamsangloc', $dataUpdate, "id = $id ");
+        
+
+       
+        // Kiểm tra kết quả và đưa ra thông báo
+        if ($updateResult) {
+            setFlashData('msg', 'Cập nhật trạng thái thành công!');
+            setFlashData('msg_type', 'success');
+        } else {
+            setFlashData('msg', 'Cập nhật trạng thái thất bại!');
+            setFlashData('msg_type', 'danger');
+        }
+    }
+    // header("Location:http://localhost/baitaplon/modules/admin/index.php?page_web=manager_service&action_web=management_screening");
+
     $filter = ''; // Biến này sẽ chứa điều kiện tìm kiếm
 
     if (isGet()) {
@@ -46,7 +81,7 @@ if (isLogin()) {
     $offset = ($page - 1) * $perPage;
 
     // Truy vấn để lấy danh sách người dùng dựa trên phân trang và điều kiện tìm kiếm
-    $listAllUser = getRaw("SELECT user.fullname, user.phone, user.email, ls.ngay_kham, ls.tinh_trang_suc_khoe, ls.tieu_su_benh_ly, ls.dieu_kien_tiem, ls.ma_khach_hang
+    $listAllUser = getRaw("SELECT ls.id,user.fullname, user.phone, user.email, ls.ngay_kham, ls.tinh_trang_suc_khoe, ls.tieu_su_benh_ly, ls.dieu_kien_tiem, ls.ma_khach_hang
                            FROM user 
                            INNER JOIN phieukhamsangloc AS ls 
                            ON user.id = ls.ma_khach_hang 
@@ -63,7 +98,7 @@ if (isLogin()) {
         <hr />
         <h3>Quản lý phiếu khám lâm sàng</h3>
         <?php getMsg($msg, $msg_type); ?>
-
+        
         <div class="tool-search">
             <!-- Form tìm kiếm -->
             <form action="" method="get">
@@ -84,15 +119,15 @@ if (isLogin()) {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th width="5%">Serial</th>
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Phone number</th>
-                    <th>Medical history</th>
-                    <th>Date</th>
-                    <th>Examination conditions</th>
-                    <th width="5%">Edit</th>
-                    <th width="5%">Delete</th>
+                    <td width="5%">Serial</td>
+                    <td>Fullname</td>
+                    <td>Email</td>
+                    <td>Phone number</td>
+                    <td>Medical history</td>
+                    <td>Date</td>
+                    <td width="15%">Examination conditions</td>
+                    <td width="5%">Edit</td>
+                    <td width="5%">Delete</td>
                 </tr>
             </thead>
             <tbody>
@@ -100,6 +135,7 @@ if (isLogin()) {
                     <?php
                     $count = 0; // Khởi tạo biến đếm để hiển thị số thứ tự
                     foreach ($listAllUser as $item) :
+                        
                         $count++;
                     ?>
                         <tr>
@@ -109,9 +145,17 @@ if (isLogin()) {
                             <td><?php echo $item['phone']; ?></td>
                             <td><?php echo $item['tieu_su_benh_ly']; ?></td>
                             <td><?php echo $item['ngay_kham']; ?></td>
-                            <td><?php echo $item['dieu_kien_tiem'] == 1 ? '<button type="submit" class="btn btn-success btn-sm">Active</button>' : '<button type="submit" class="btn btn-warning btn-sm">Passive</button>'; ?></td>
-                            <td><a href=<?php echo '\baitaplon\modules\admin\index.php?page_web=admin&action_web=edit_screening&id=' . $item['ma_khach_hang'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
-                            <td><a href=<?php echo '\baitaplon\modules\admin\index.php?page_web=admin&action_web=delete_screening&id=' . $item['ma_khach_hang'] ?> onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
+                            <td>
+                                <form method="POST" action="">
+                                    <input type="hidden" name="id" value="<?php echo $item['id']; ?>">
+                                    <input type="hidden" name="dieu_kien_tiem" value="<?php echo $item['dieu_kien_tiem'] == 1 ? 0 : 1; ?>">
+                                    <button type="submit" class="btn btn-sm <?php echo $item['dieu_kien_tiem'] == 1 ? 'btn-success' : 'btn-warning'; ?>">
+                                        <?php echo $item['dieu_kien_tiem'] == 1 ? 'Đạt yêu cầu' : 'Chưa Đạt yêu cầu'; ?>
+                                    </button>
+                                </form>
+                            </td>
+                            <td><a href=<?php echo '\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=edit_screening&id=' . $item['id'] ?> class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a></td>
+                            <td><a href=<?php echo '\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=delete_screening&id=' . $item['id'] ?> onclick="return confirm('Are you sure?');" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else : ?>

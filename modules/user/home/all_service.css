@@ -71,3 +71,209 @@
     background-color: #0056b3;
 }
 
+/* jhcfasjdakldjlas */
+
+
+
+  /* Căn chỉnh tổng thể */
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Canh giữa trang */
+    padding: 20px;
+}
+
+/* Tạo kiểu cho input */
+input[type="text"],
+input[type="number"] {
+    width: 40%;
+    /* Giảm độ rộng xuống còn 40% */
+    padding: 10px 12px;
+    /* Giảm padding để input nhỏ gọn hơn */
+    margin: 5px 0;
+    /* Khoảng cách trên dưới của input */
+    box-sizing: border-box;
+    /* Đảm bảo padding không ảnh hưởng đến kích thước của input */
+    border: 1px solid #ccc;
+    /* Đặt viền màu xám nhẹ */
+    border-radius: 6px;
+    /* Bo góc nhẹ */
+    font-size: 14px;
+    /* Kích thước chữ nhỏ hơn */
+    font-family: Arial, sans-serif;
+    /* Font chữ */
+    background-color: #f1f1f1;
+    /* Màu nền nhạt */
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Hiệu ứng khi focus */
+}
+
+/* Đổi màu khi input được focus (người dùng nhập liệu) */
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #007bff;
+    /* Màu viền khi focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Hiệu ứng bóng xanh khi focus */
+    outline: none;
+    /* Loại bỏ viền mặc định khi focus */
+}
+
+/* Đổi kiểu placeholder */
+input::placeholder {
+    color: #aaa;
+    /* Màu của placeholder */
+    font-style: italic;
+    /* In nghiêng placeholder */
+}
+
+/* Tạo kiểu cho button */
+button {
+    padding: 12px 20px;
+    /* Khoảng cách bên trong button */
+    background-color: #28a745;
+    /* Màu nền xanh đậm */
+    border: none;
+    /* Loại bỏ viền mặc định */
+    color: white;
+    /* Màu chữ trắng */
+    border-radius: 6px;
+    /* Bo góc button */
+    font-size: 16px;
+    /* Kích thước chữ */
+    cursor: pointer;
+    /* Con trỏ chỉ tay khi hover */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    /* Hiệu ứng khi hover */
+    font-weight: bold;
+    /* Chữ đậm */
+    text-transform: uppercase;
+    /* Chữ in hoa */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Đổ bóng nhẹ cho button */
+}
+
+/* Tạo hiệu ứng khi hover button */
+button:hover {
+    background-color: #218838;
+    /* Đổi màu nền khi hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    /* Hiệu ứng bóng lớn hơn khi hover */
+}
+
+/* Bố cục card dịch vụ */
+.card-service-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Để khi màn hình nhỏ, các thẻ xuống hàng */
+    justify-content: space-between;
+    /* Căn đều các card */
+    gap: 20px;
+    /* Khoảng cách giữa các card */
+}
+
+.card-service {
+    flex: 1 1 calc(25% - 20px);
+    /* Mỗi thẻ chiếm 1/4 chiều rộng của thẻ chứa */
+    max-width: calc(25% - 20px);
+    /* Đảm bảo thẻ không vượt quá 25% chiều rộng */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    min-height: 350px;
+    /* Đặt chiều cao tối thiểu */
+    height: auto;
+    /* Tự động điều chỉnh chiều cao cho phù hợp với nội dung */
+}
+
+.card-service:hover {
+    transform: scale(1.05);
+    /* Hiệu ứng phóng to nhẹ khi hover */
+}
+
+.card-service img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    /* Đảm bảo hình ảnh giữ tỷ lệ và vừa khung */
+}
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #777;
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 16px;
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.btn {
+    margin-top: 15px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Phân trang */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #f1f1f1;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination a.active {
+    background-color: #007bff;
+    color: #fff;
+}

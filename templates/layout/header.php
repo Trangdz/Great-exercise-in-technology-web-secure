@@ -44,16 +44,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http:\\localhost\baitaplon\modules\user\index.php?page_web=home&action_web=screening_slip">Screening Slip</a>
                     </li>
-                    <!-- Dropdown Settings -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Settings
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Account Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Privacy Settings</a></li>
-                            <li><a class="dropdown-item" href="../../index.php?module=auth&action=logout">Logout</a></li>
-                        </ul>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="http:\\localhost\baitaplon\modules\user\index.php?page_web=home&action_web=screening_slip">History</a>
+                    </li> -->
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="http:\\localhost\baitaplon\index.php?module=auth&action=logout">Logout</a>
                     </li>
                 </ul>
             </div>

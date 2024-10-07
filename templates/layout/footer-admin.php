@@ -5,12 +5,12 @@ if (defined('_INCODE') != 1) {
 
 ?>
 <!-- Footer -->
-<footer style="left: 0; bottom: 0; width: 100%;">
+<!-- <footer style="left: 0; bottom: 0; width: 100%;">
     <div class="container">
         <p>&copy; 2024 Học Viện Kỹ Thuật Mật Mã. All rights reserved.</p>
         <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
     </div>
-</footer>
+</footer> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>

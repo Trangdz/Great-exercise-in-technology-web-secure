@@ -50,7 +50,7 @@ if (isset($getData[0])) {
 }
 
 require_once 'D:\xampp\htdocs\baitaplon\templates\layout\header.php';
-require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php';
+// require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php';
 $msg=getFlashData('msg');
 $msg_type=getFlashData('msg_type');
 ?>
@@ -90,3 +90,8 @@ $msg_type=getFlashData('msg_type');
         </form>
     </div>
 </div>
+<style>
+    input[type="text"]{
+        width: 620px;
+    }
+</style>

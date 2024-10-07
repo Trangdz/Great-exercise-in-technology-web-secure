@@ -39,8 +39,7 @@ $fullname=$getUser['fullname'];
 $email=$getUser['email'];
 $phone=$getUser['phone'];
 $dieu_kien_tiem=$getData['dieu_kien_tiem'];
-var_dump($fullname);
-var_dump($dieu_kien_tiem);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   
     $body = getBody();
@@ -60,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ];
 
         $resultInsert = insert('phieutiemchung', $dataInsert);
-        var_dump($resultInsert);
+       
         if ($resultInsert) {
             // Lấy id của bản ghi vừa chèn vào từ cơ sở dữ liệu
             // $lastInsertId = mysqli_insert_id($conn); // $connection là biến kết nối MySQL của bạn
@@ -99,7 +98,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // }
 
 require_once 'D:\xampp\htdocs\baitaplon\templates\layout\header.php';
-require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php';
+// require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php';
 $msg = getFlashData('msg');
 $msg_type = getFlashData('msg_type');
 ?>

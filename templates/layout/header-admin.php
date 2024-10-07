@@ -311,60 +311,56 @@
         <h2>Admin Panel</h2>
         <a href="?page_web=manager_service&action_web=dashboard" class="active">
             <i class="fa fa-dashboard"></i>
-            <span class="link-text">Dashboard</span>
+            <span class="link-text">Thống kê</span>
         </a>
 
         <!-- Accordion Menu -->
         <button class="accordion">
             <i class="fa fa-cogs"></i>
-            <span class="link-text">Services</span>
+            <span class="link-text">Dịch vụ</span>
         </button>
         <div class="panel">
             <a href="?page_web=manager_service&action_web=manage_service">
 
-                <i class="fa fa-cog"></i> <span class="link-text">Manage Services</span>
+                <i class="fa fa-cog"></i> <span class="link-text">Quản lý dịch vụ</span>
             </a>
             <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=add_service">
-                <i class="fa fa-plus"></i> <span class="link-text">Add New Service</span>
+                <i class="fa fa-plus"></i> <span class="link-text">Thêm dịch vụ</span>
             </a>
         </div>
 
         <button class="accordion">
             <i class="fa fa-users"></i>
-            <span class="link-text">User Management</span>
+            <span class="link-text">Người dùng</span>
         </button>
         <div class="panel">
             <a href="?page_web=manager_service&action_web=list">
                
-                <i class="fa fa-user"></i> <span class="link-text">Manage Users</span>
+                <i class="fa fa-user"></i> <span class="link-text">Quản lý người dùng</span>
             </a>
             <a href="http:\\localhost\baitaplon\index.php?module=admin&action=add">
 
-                <i class="fa fa-user-plus"></i> <span class="link-text">Add New User</span>
+                <i class="fa fa-user-plus"></i> <span class="link-text">Thêm người dùng</span>
             </a>
         </div>
 
         <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=manage_screening">
             <i class="fa fa-stethoscope"></i>
-            <span class="link-text">Manage screening sheets </span>
+            <span class="link-text">Quản lý phiếu làm sàng lọc </span>
         </a>
-        <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=vaccine_records">
+        <!-- <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=vaccine_records">
             <i class="fa fa-medkit"></i>
-            <span class="link-text">Manage vaccination cards</span>
-        </a>
+            <span class="link-text">Quản lý phiếu tiêm chủng</span>
+        </a> -->
         <a href="http:\\localhost\baitaplon\modules\admin\index.php?page_web=manager_service&action_web=bills">
             <i class="fa fa-medkit"></i>
-            <span class="link-text">Manage invoices</span>
+            <span class="link-text">Quản lý hóa đơn</span>
         </a>
 
         <!-- Accordion for Invoice Management -->
 
 
-        <a href="?page_web=manager_service&action_web=reports">
-            <?php $page_web = 'reports'; ?>
-            <i class="fa fa-bar-chart"></i>
-            <span class="link-text">Revenue Statistics</span>
-        </a>
+        
     </div>
 
     <!-- Header -->
@@ -385,15 +381,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="?page_web=manager_service&action_web=home">
 
-                                Home</a>
+                                Trang chủ</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="#">Profile</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="http:\\location\baitaplon\modules\auth\login.php">Contact</a>
+                            <a class="nav-link" href="http:\\localhost\baitaplon\index.php?module=auth&action=logout&loginToken=" .$loginToken>Đăng xuất</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Settings
@@ -404,17 +400,17 @@
 
 
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- Nút thu/hiện sidebar -->
-                <button class="btn btn-outline-light" onclick="toggleSidebar()">Toggle Sidebar</button>
+                <!-- <button class="btn btn-outline-light" onclick="toggleSidebar()">Toggle Sidebar</button> -->
             </div>
         </nav>
     </div>
 
     <!-- Nút thu/hiện sidebar -->
-    <button class="btn btn-outline-dark" onclick="toggleSidebar()">Toggle Sidebar</button>
+    <!-- <button class="btn btn-outline-dark" onclick="toggleSidebar()">Toggle Sidebar</button> -->
     </div>
     </nav>
     </div>

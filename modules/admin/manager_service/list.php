@@ -125,13 +125,13 @@ if (isLogin()) {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th width="5%">Serial</th>
-                    <th>Fullname</th>
-                    <th>Email</th>
-                    <th>Phone number</th>
-                    <th>Status</th>
-                    <th width="5%">Sửa</th>
-                    <th width="5%">Xóa</th>
+                    <td width="5%">Serial</td>
+                    <td>Fullname</td>
+                    <td>Email</td>
+                    <td>Phone number</td>
+                    <td>Status</td>
+                    <td width="5%">Sửa</td>
+                    <td width="5%">Xóa</td>
                 </tr>
             </thead>
             <tbody>
@@ -180,7 +180,7 @@ if (isLogin()) {
                 ?>
 
                 <?php
-                $begin = $page - 2;
+                $begin = $page - 2;  
                 $end = $page + 2;
                 if ($begin < 1) {
                     $begin = 1;

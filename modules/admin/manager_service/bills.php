@@ -90,15 +90,15 @@ $msg_type = getFlashData('msg_type');
 
     <table class="table table-bordered">
         <thead>
-            <tr>
-                <th width="5%">STT</th>
-                <th>Tên khách hàng</th>
-                <th>Tên vacxin</th>
-                <th>Ngày lập</th>
-                <th>Tổng tiền</th>
-                <th width="10%">Thanh Toán</th>
-                <th width="5%">Edit</th>
-                <th width="5%">Delete</th>
+            <tr>            
+                <td width="5%">STT</td>
+                <td>Tên khách hàng</td>
+                <td>Tên vacxin</td>
+                <td>Ngày lập</td>
+                <td>Tổng tiền</td>
+                <td width="15%">Thanh Toán</td>
+                <td width="5%">Edit</td>
+                <td width="5%">Delete</td>
             </tr>
         </thead>
         <tbody>

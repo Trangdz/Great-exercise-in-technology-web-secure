@@ -8,7 +8,7 @@ if (!isLogin()) {
     redirect('\baitaplon\index.php?module=auth&action=login');
 }
 require_once 'D:\xampp\htdocs\baitaplon\templates\layout\header.php';
-require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php'; 
+// require_once 'D:\xampp\htdocs\baitaplon\templates\layout\sidebar_user.php'; 
 // Lấy id của dịch vụ từ URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
